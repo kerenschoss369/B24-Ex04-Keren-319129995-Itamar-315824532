@@ -6,8 +6,45 @@ using System.Threading.Tasks;
 
 namespace Ex04.Menus.Events
 {
-    internal class ExpandableMenuItem
+    internal class ExpandableMenuItem : MenuItem
     {
-        //Keren+itamar guyava foreva
+        private List<MenuItem> m_MenuItems;
+        public ExpandableMenuItem(string i_Title) : base(i_Title)
+        {
+        }
+        public override void HandleSelectedItem()
+        {
+            OnChosen();
+        }
+
+        public void HandleSelectedItem(int i_UserInput)
+        {
+            bool ExitOrBack = false;
+
+            while (!ExitOrBack)
+            {
+                printMenu();
+                if (i_UserInput == 0)
+                {
+                    ExitOrBack = true;
+                }
+                else
+                {
+                    m_MenuItems[i_UserInput--].HandleSelectedItem();
+                }
+            }
+        }
+
+        private void printMenu()
+        {
+            Console.WriteLine("**{0}**", ItemTitle);
+            Console.WriteLine("-------------");
+            int count = 1;
+            foreach (MenuItem item in m_MenuItems)
+            {
+                Console.WriteLine("{0} -> {1}", count, item.ItemTitle);
+                count++;
+            }
+        }
     }
 }
