@@ -40,7 +40,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Interface.cs" />
-    <Compile Include="MainMenu.cs" />
     <Compile Include="MenuItem.cs" />
     <Compile Include="NonExpandableMenuItem.cs" />
     <Compile Include="ExpandableMenuItem.cs" />
