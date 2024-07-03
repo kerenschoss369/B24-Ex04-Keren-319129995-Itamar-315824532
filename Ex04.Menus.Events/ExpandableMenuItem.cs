@@ -16,7 +16,10 @@ namespace Ex04.Menus.Events
         {
             OnChosen();
         }
-
+        public void AddMenuItem(MenuItem i_MenuItem)
+        {
+            m_MenuItems?.Add(i_MenuItem);
+        }
         public void HandleSelectedItem(int i_UserInput)
         {
             bool ExitOrBack = false;

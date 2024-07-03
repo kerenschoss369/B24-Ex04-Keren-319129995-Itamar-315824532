@@ -35,5 +35,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CountCapitalsListener.cs" />
+    <Compile Include="ShowDateListener.cs" />
+    <Compile Include="ShowTimeListener.cs" />
+    <Compile Include="ShowVersionListener.cs" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
