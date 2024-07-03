@@ -9,7 +9,7 @@ namespace Ex04.Menus.Interfaces
     internal class MenuItem
     {
         string m_Title;
-        protected List<ItemListener> m_ItemListeners = new List<ItemListener>();
+        protected List<Interface> m_ItemListeners = new List<Interface>();
         int m_ItemIndex;
         ExpandableMenuItem m_SubMenu;
 
@@ -26,12 +26,12 @@ namespace Ex04.Menus.Interfaces
             m_SubMenu = null;
         }
 
-        public void AddItemToItemListenersList(ItemListener i_ItemListener)
+        public void AddItemToItemListenersList(Interface i_ItemListener)
         {
             m_ItemListeners.Add(i_ItemListener);
         }
 
-        public void RemoveItemFromItemListenersList(ItemListener itemListener)
+        public void RemoveItemFromItemListenersList(Interface itemListener)
         {
             m_ItemListeners.Remove(itemListener);
         }

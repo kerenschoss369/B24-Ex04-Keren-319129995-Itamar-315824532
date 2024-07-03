@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Ex04.Menus.Interfaces
 {
-    public interface ItemListener
+    public interface Interface
     {
         void RequestInvoker();
     }
