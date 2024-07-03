@@ -8,7 +8,17 @@ namespace Ex04.Menus.Interfaces
 {
     internal class NonExpandableMenuItem : MenuItem
     {
+        public NonExpandableMenuItem(string i_Title) : base(i_Title)
+        {
+        }
 
+        public override void HandleSelectedItem()
+        {
+            foreach (IMenuListener listener in m_ItemListeners)
+            {
+                listener.ActionForChosenMenuItem();
+            }
+        }
     }
 }
 
