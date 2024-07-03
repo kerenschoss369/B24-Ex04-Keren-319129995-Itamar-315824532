@@ -38,13 +38,14 @@ namespace Ex04.Menus.Events
         private void printMenu()
         {
             Console.WriteLine("**{0}**", ItemTitle);
-            Console.WriteLine("-------------");
+            Console.WriteLine("-----------------------");
             int count = 1;
             foreach (MenuItem item in m_MenuItems)
             {
                 Console.WriteLine("{0} -> {1}", count, item.ItemTitle);
                 count++;
             }
+            Console.WriteLine("-----------------------");
         }
     }
 }
