@@ -37,9 +37,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CountCapitalsListener.cs" />
+    <Compile Include="EventsMenu.cs" />
     <Compile Include="ShowDateListener.cs" />
     <Compile Include="ShowTimeListener.cs" />
     <Compile Include="ShowVersionListener.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Ex04.Menus.Events\Ex04.Menus.Events.csproj">
+      <Project>{9e42894a-fc56-4c9f-8863-3b1530bec872}</Project>
+      <Name>Ex04.Menus.Events</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ex04.Menus.Interfaces\Ex04.Menus.Interfaces.csproj">
+      <Project>{f0dcf328-a069-40c7-b6a2-04164a872c50}</Project>
+      <Name>Ex04.Menus.Interfaces</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

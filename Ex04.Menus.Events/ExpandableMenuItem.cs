@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Ex04.Menus.Events
 {
-    internal class ExpandableMenuItem : MenuItem
+    public class ExpandableMenuItem : MenuItem
     {
         private List<MenuItem> m_MenuItems;
         public ExpandableMenuItem(string i_Title) : base(i_Title)

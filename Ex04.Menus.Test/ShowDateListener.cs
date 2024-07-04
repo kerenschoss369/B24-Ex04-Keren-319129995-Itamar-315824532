@@ -13,5 +13,10 @@ namespace Ex04.Menus.Test
             Console.WriteLine("The date is: {0}", DateTime.Now.ToShortDateString());
         }
 
+        public void ChosenAction()
+        {
+            showDate();
+        }
+
     }
 }

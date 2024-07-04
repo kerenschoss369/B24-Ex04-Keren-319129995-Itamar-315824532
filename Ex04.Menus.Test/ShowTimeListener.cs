@@ -8,5 +8,14 @@ namespace Ex04.Menus.Test
 {
     internal class ShowTimeListener
     {
+        private void showTime()
+        {
+            Console.WriteLine("The hour is: {0}", DateTime.Now);
+        }
+
+        public void ChosenAction()
+        {
+            showTime();
+        }
     }
 }
