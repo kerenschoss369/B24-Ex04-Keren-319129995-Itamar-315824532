@@ -8,38 +8,54 @@ namespace Ex04.Menus.Interfaces
 {
     internal class ExpandableMenuItem : MenuItem
     {
-        protected List<MenuItem> m_SubMenu;
+        protected List<MenuItem> m_MenuItems;
         public ExpandableMenuItem(string i_Title) : base(i_Title)
         {
         }
-        public override void HandleSelectedItem()
+        private void printMenu()
         {
-            /*bool quit = false;
-            while (!quit)
+            Console.WriteLine("**{0}**", Title);
+            Console.WriteLine("-----------------------");
+            int count = 1;
+            foreach (MenuItem item in m_MenuItems)
             {
-                showMenu();
-                int choise = askForInput(m_SubMenu.Count);
-                if (choise != 0)
-                {
+                Console.WriteLine("{0} -> {1}", count, item.Title);
+                count++;
+            }
+            Console.WriteLine("-----------------------");
+        }
 
-                    m_SubMenu[choise - 1].OnMenuAsked(m_SubMenu[choise - 1]);
+        public void HandleSelectedItem(int i_UserInput)
+        {
+            bool ExitOrBack = false;
+
+            while (!ExitOrBack)
+            {
+                printMenu();
+                if (i_UserInput == 0)
+                {
+                    ExitOrBack = true;
                 }
                 else
                 {
-                    quit = true;
+                    m_MenuItems[i_UserInput--].HandleSelectedItem();
                 }
-            }*/
+            }
         }
-
+        public override void HandleSelectedItem()
+        {
+            //COMPLETE
+            //OnChosen();
+        }
         public void AddSubMenu(MenuItem i_MenuItem)
         {
-            if (m_SubMenu == null)
+            if (m_MenuItems == null)
             {
-                m_SubMenu = new List<MenuItem>();
+                m_MenuItems = new List<MenuItem>();
             }
-            m_SubMenu.Add(i_MenuItem);
+            m_MenuItems.Add(i_MenuItem);
 
-            //FIX- add listener to list throw test
+            //FIX- add listener to list throw test?
         }
     }
 }
