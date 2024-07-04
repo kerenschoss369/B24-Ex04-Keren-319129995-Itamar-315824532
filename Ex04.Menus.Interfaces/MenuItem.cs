@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Ex04.Menus.Interfaces
 {
-    internal abstract class MenuItem 
+    public abstract class MenuItem 
     {
         string m_Title;
         protected List<IMenuListener> m_ItemListeners = new List<IMenuListener>();

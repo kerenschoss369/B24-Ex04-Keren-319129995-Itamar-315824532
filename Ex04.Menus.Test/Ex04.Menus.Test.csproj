@@ -38,6 +38,8 @@
   <ItemGroup>
     <Compile Include="CountCapitalsListener.cs" />
     <Compile Include="EventsMenu.cs" />
+    <Compile Include="InterfaceMenu.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="ShowDateListener.cs" />
     <Compile Include="ShowTimeListener.cs" />
     <Compile Include="ShowVersionListener.cs" />

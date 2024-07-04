@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 
 namespace Ex04.Menus.Events
 {
     public abstract class MenuItem
     {
-        protected string m_ItemTitle;
-        public event Action<MenuItem> Chosen;
+        protected readonly string m_ItemTitle;
+        public event Action Chosen;
 
         public MenuItem(string i_Title)
         {
@@ -18,20 +19,17 @@ namespace Ex04.Menus.Events
 
         public string ItemTitle
         {
-            get 
+            get
             {
-                return m_ItemTitle; 
-            }
-            set 
-            {
-                m_ItemTitle = value; 
+                return m_ItemTitle;
             }
         }
         public abstract void HandleSelectedItem();
 
         protected virtual void OnChosen()
         {
-                Chosen?.Invoke(this);
+            Chosen?.Invoke();
+            Thread.Sleep(2000);
         }
     }
 }

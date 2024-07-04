@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Ex04.Menus.Events;
+using Ex04.Menus.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Ex04.Menus.Test
 {
-    internal class CountCapitalsListener
+    internal class CountCapitalsListener : IMenuListener
     {
 
         private void countCapitals()

@@ -16,7 +16,7 @@ namespace Ex04.Menus.Interfaces
         {
             foreach (IMenuListener listener in m_ItemListeners)
             {
-                listener.ActionForChosenMenuItem();
+                listener.ChosenAction();
             }
         }
     }

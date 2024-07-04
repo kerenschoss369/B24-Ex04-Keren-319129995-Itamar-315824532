@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Ex04.Menus.Test
 {
-    internal class EventsMenu
+    internal class InterfaceMenu
     {
         public ExpandableMenuItem m_MainMenu; //should be MenuItem
         ShowVersionListener m_ShowVersionListener = new ShowVersionListener();
@@ -15,7 +15,7 @@ namespace Ex04.Menus.Test
         ShowDateListener m_ShowDateListener = new ShowDateListener();
         ShowTimeListener m_ShowTimeListener = new ShowTimeListener();
 
-        public EventsMenu()
+        public InterfaceMenu()
         {
             NonExpandableMenuItem showVersion = new NonExpandableMenuItem("Show Version");
             NonExpandableMenuItem countCapitals = new NonExpandableMenuItem("Count Capitals");
@@ -25,25 +25,21 @@ namespace Ex04.Menus.Test
             ExpandableMenuItem showDateTime = new ExpandableMenuItem("Show Date/Time");
             ExpandableMenuItem eventsMenu = new ExpandableMenuItem("Events Main Menu");
 
-
-            //not sure about it for now
-            NonExpandableMenuItem exit = new NonExpandableMenuItem("Exit");
-            NonExpandableMenuItem back = new NonExpandableMenuItem("Back");
-
-            showVersion.Chosen += m_ShowVersionListener.ChosenAction;
+            /*showVersion.Chosen += m_ShowVersionListener.ChosenAction;
             countCapitals.Chosen += m_CountCapitalsListener.ChosenAction;
             showDate.Chosen += m_ShowDateListener.ChosenAction;
-            showTime.Chosen += m_ShowTimeListener.ChosenAction;
+            showTime.Chosen += m_ShowTimeListener.ChosenAction;*/
+            //the above code needs to be replaced with add listeners
+
+
             showVersionOrCountCapitals.AddMenuItem(showVersion);
             showVersionOrCountCapitals.AddMenuItem(countCapitals);
-            showVersionOrCountCapitals.AddMenuItem(back);//sadsaadsdas
             showDateTime.AddMenuItem(showDate);
             showDateTime.AddMenuItem(showTime);
-            showDateTime.AddMenuItem(back);//sadsaadsdas
             eventsMenu.AddMenuItem(showVersionOrCountCapitals);
             eventsMenu.AddMenuItem(showDateTime);
-            eventsMenu.AddMenuItem(exit);
             m_MainMenu = eventsMenu;
+            //The none greened part needs to add the itemms to the menus names are correct but need to implement method
         }
     }
 }
