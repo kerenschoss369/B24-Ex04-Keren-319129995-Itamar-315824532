@@ -17,12 +17,6 @@ namespace Ex04.Menus.Interfaces
             set { m_Title = value; }
         }
 
-        /*public IMenuListener UpperMenu
-        {
-            get { return m_UpperMenu; }
-            set { m_UpperMenu = value; }
-        }*/
-
         public MenuItem(string title)
         {
             m_Title = title;
