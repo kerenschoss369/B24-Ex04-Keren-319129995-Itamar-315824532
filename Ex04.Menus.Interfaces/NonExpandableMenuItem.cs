@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Ex04.Menus.Interfaces
 {
-    internal class NonExpandableMenuItem : MenuItem
+    public class NonExpandableMenuItem : MenuItem
     {
         public NonExpandableMenuItem(string i_Title) : base(i_Title)
         {

@@ -9,7 +9,7 @@ namespace Ex04.Menus.Test
 {
     internal class InterfaceMenu
     {
-        public ExpandableMenuItem m_MainMenu; //should be MenuItem
+        public Ex04.Menus.Interfaces.ExpandableMenuItem m_MainMenu;
         ShowVersionListener m_ShowVersionListener = new ShowVersionListener();
         CountCapitalsListener m_CountCapitalsListener = new CountCapitalsListener();
         ShowDateListener m_ShowDateListener = new ShowDateListener();
@@ -17,29 +17,33 @@ namespace Ex04.Menus.Test
 
         public InterfaceMenu()
         {
-            NonExpandableMenuItem showVersion = new NonExpandableMenuItem("Show Version");
-            NonExpandableMenuItem countCapitals = new NonExpandableMenuItem("Count Capitals");
-            NonExpandableMenuItem showDate = new NonExpandableMenuItem("Show Time");
-            NonExpandableMenuItem showTime = new NonExpandableMenuItem("Show Date");
-            ExpandableMenuItem showVersionOrCountCapitals = new ExpandableMenuItem("Version And Capitals");
-            ExpandableMenuItem showDateTime = new ExpandableMenuItem("Show Date/Time");
-            ExpandableMenuItem eventsMenu = new ExpandableMenuItem("Events Main Menu");
+            Ex04.Menus.Interfaces.NonExpandableMenuItem showVersion = new Ex04.Menus.Interfaces.NonExpandableMenuItem("Show Version");
+            Ex04.Menus.Interfaces.NonExpandableMenuItem countCapitals = new Ex04.Menus.Interfaces.NonExpandableMenuItem("Count Capitals");
+            Ex04.Menus.Interfaces.NonExpandableMenuItem showDate = new Ex04.Menus.Interfaces.NonExpandableMenuItem("Show Time");
+            Ex04.Menus.Interfaces.NonExpandableMenuItem showTime = new Ex04.Menus.Interfaces.NonExpandableMenuItem("Show Date");
+            Ex04.Menus.Interfaces.ExpandableMenuItem showVersionOrCountCapitals = new Ex04.Menus.Interfaces.ExpandableMenuItem("Version And Capitals");
+            Ex04.Menus.Interfaces.ExpandableMenuItem showDateTime = new Ex04.Menus.Interfaces.ExpandableMenuItem("Show Date/ Time");
+            Ex04.Menus.Interfaces.ExpandableMenuItem interfaceMenu = new Ex04.Menus.Interfaces.ExpandableMenuItem("Interface Main Menu");
 
-            /*showVersion.Chosen += m_ShowVersionListener.ChosenAction;
-            countCapitals.Chosen += m_CountCapitalsListener.ChosenAction;
-            showDate.Chosen += m_ShowDateListener.ChosenAction;
-            showTime.Chosen += m_ShowTimeListener.ChosenAction;*/
-            //the above code needs to be replaced with add listeners
+            //not sure about it for now
+            Ex04.Menus.Interfaces.NonExpandableMenuItem exit = new Ex04.Menus.Interfaces.NonExpandableMenuItem("Exit");
+            Ex04.Menus.Interfaces.NonExpandableMenuItem back = new Ex04.Menus.Interfaces.NonExpandableMenuItem("Back");
 
+            showVersion.AddListener(m_ShowVersionListener);
+            countCapitals.AddListener(m_CountCapitalsListener);
+            showDate.AddListener(m_ShowDateListener);
+            showTime.AddListener(m_ShowTimeListener);
 
             showVersionOrCountCapitals.AddMenuItem(showVersion);
             showVersionOrCountCapitals.AddMenuItem(countCapitals);
+            showVersionOrCountCapitals.AddMenuItem(back);// FIX
             showDateTime.AddMenuItem(showDate);
             showDateTime.AddMenuItem(showTime);
-            eventsMenu.AddMenuItem(showVersionOrCountCapitals);
-            eventsMenu.AddMenuItem(showDateTime);
-            m_MainMenu = eventsMenu;
-            //The none greened part needs to add the itemms to the menus names are correct but need to implement method
+            showDateTime.AddMenuItem(back);// FIX
+            interfaceMenu.AddMenuItem(showVersionOrCountCapitals);
+            interfaceMenu.AddMenuItem(showDateTime);
+            interfaceMenu.AddMenuItem(exit);// FIX
+            m_MainMenu = interfaceMenu;
         }
     }
 }

@@ -31,7 +31,7 @@ namespace Ex04.Menus.Events
             while (!ExitOrBack)
             {
                 printMenu();
-                userInput = askForInput(m_MenuItems.Count());
+                userInput = GetInputFromUser(m_MenuItems.Count());
                 if (userInput == 0)
                 {
                     ExitOrBack = true;
@@ -72,32 +72,50 @@ namespace Ex04.Menus.Events
             Console.WriteLine("-----------------------");
         }
 
-        public static int askForInput(int i_MaxVal)//Change this, this is literally crtl c crtl v
+        public static int GetInputFromUser(int i_MenuItemsAmount)
         {
-            bool validInput = false;
-            // $G$ CSS-027 (-3) Missing blank lines.
-            Console.WriteLine("-------------");
-            Console.WriteLine(@"Please Enter your input (1 to {0} or press '0' to Back).", i_MaxVal -1);
-            int resValue = 0;
-            while (!validInput)
+            bool isValidInput = false;
+            string userInput;
+            int validInput = 0;
+
+            while (!isValidInput)
             {
-                if (int.TryParse(Console.ReadLine(), out resValue))
+                try
                 {
-                    validInput = true;
-                    // $G$ SFN-006 (-5) The "Input handling" should have managed by the Menus.Test project.
-                    if (resValue < 0 || resValue > i_MaxVal)
-                    {
-                        validInput = false;
-                    }
+                    Console.WriteLine(@"Please Enter your input: (1 to {0} or press '0' to Back).", i_MenuItemsAmount - 1);
+                    userInput = Console.ReadLine();
+                    GetAndCheckInput(i_MenuItemsAmount, userInput, out isValidInput, out validInput);
                 }
-                // $G$ CSS-006 (-2) Missing blank line, after "if / else" blocks.
-                if (!validInput)
+                catch (ArgumentOutOfRangeException argEx)
                 {
-                    Console.WriteLine("Invalid input.. Try Again");
+                    Console.WriteLine(argEx.Message);
+                }
+                catch (FormatException frmtEx)
+                {
+                    Console.WriteLine(frmtEx.Message);
                 }
             }
 
-            return resValue;
+            return validInput;
+        }
+
+        public static void GetAndCheckInput(int i_MenuItemsAmount, string i_UserInput, out bool o_IsValidInput, out int o_InputParsedToInt)
+        {
+            o_IsValidInput = true;
+            o_InputParsedToInt = 0;
+
+            if (!(int.TryParse(i_UserInput, out o_InputParsedToInt)))
+            {
+                o_IsValidInput = false;
+                throw new FormatException("Input must be a number.");
+            }
+
+            if ((o_InputParsedToInt < 0) || (o_InputParsedToInt >= i_MenuItemsAmount))
+            {
+                o_IsValidInput = false;
+                throw new ArgumentOutOfRangeException();
+            }
+
         }
     }
 }

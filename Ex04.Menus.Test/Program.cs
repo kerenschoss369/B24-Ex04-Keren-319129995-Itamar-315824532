@@ -14,6 +14,8 @@ namespace Ex04.Menus.Test
             EventsMenu eventsMenu = new EventsMenu();
             eventsMenu.m_MainMenu.show();
 
+            InterfaceMenu interfaceMenu = new InterfaceMenu();
+            interfaceMenu.m_MainMenu.show();
         }
     }
 }

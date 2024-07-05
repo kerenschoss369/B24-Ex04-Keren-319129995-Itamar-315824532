@@ -38,10 +38,7 @@ namespace Ex04.Menus.Interfaces
         }
         public abstract void HandleSelectedItem();
 
-        /*protected virtual void OnChosen()
-        {
-            Chosen?.Invoke(this);
-        }*/
+
 
     }
 
