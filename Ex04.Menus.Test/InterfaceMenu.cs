@@ -17,11 +17,11 @@ namespace Ex04.Menus.Test
 
         public InterfaceMenu()
         {
-            Ex04.Menus.Interfaces.NonExpandableMenuItem showDate = new Ex04.Menus.Interfaces.NonExpandableMenuItem("Show Time");
-            Ex04.Menus.Interfaces.NonExpandableMenuItem showTime = new Ex04.Menus.Interfaces.NonExpandableMenuItem("Show Date");
+            Ex04.Menus.Interfaces.NonExpandableMenuItem showDate = new Ex04.Menus.Interfaces.NonExpandableMenuItem("Show Date");
+            Ex04.Menus.Interfaces.NonExpandableMenuItem showTime = new Ex04.Menus.Interfaces.NonExpandableMenuItem("Show Time");
             Ex04.Menus.Interfaces.NonExpandableMenuItem showVersion = new Ex04.Menus.Interfaces.NonExpandableMenuItem("Show Version");
             Ex04.Menus.Interfaces.NonExpandableMenuItem countCapitals = new Ex04.Menus.Interfaces.NonExpandableMenuItem("Count Capitals");
-            Ex04.Menus.Interfaces.ExpandableMenuItem showDateTime = new Ex04.Menus.Interfaces.ExpandableMenuItem("Show Date/ Time");
+            Ex04.Menus.Interfaces.ExpandableMenuItem showDateTime = new Ex04.Menus.Interfaces.ExpandableMenuItem("Show Date/Time");
             Ex04.Menus.Interfaces.ExpandableMenuItem showVersionOrCountCapitals = new Ex04.Menus.Interfaces.ExpandableMenuItem("Version And Capitals");
             Ex04.Menus.Interfaces.ExpandableMenuItem interfaceMenu = new Ex04.Menus.Interfaces.ExpandableMenuItem("Interface Main Menu");
 
@@ -34,15 +34,15 @@ namespace Ex04.Menus.Test
             showVersion.AddListener(m_ShowVersionListener);
             countCapitals.AddListener(m_CountCapitalsListener);
 
-            showDateTime.AddMenuItem(showDate);
             showDateTime.AddMenuItem(showTime);
-            showDateTime.AddMenuItem(back);// FIX
+            showDateTime.AddMenuItem(showDate);
+            showDateTime.AddMenuItem(back);
             showVersionOrCountCapitals.AddMenuItem(showVersion);
             showVersionOrCountCapitals.AddMenuItem(countCapitals);
-            showVersionOrCountCapitals.AddMenuItem(back);// FIX
+            showVersionOrCountCapitals.AddMenuItem(back);
             interfaceMenu.AddMenuItem(showDateTime);
             interfaceMenu.AddMenuItem(showVersionOrCountCapitals);
-            interfaceMenu.AddMenuItem(exit);// FIX
+            interfaceMenu.AddMenuItem(exit);
             m_MainMenu = interfaceMenu;
         }
     }

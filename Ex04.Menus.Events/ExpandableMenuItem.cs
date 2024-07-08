@@ -21,7 +21,7 @@ namespace Ex04.Menus.Events
         {
             m_MenuItems?.Add(i_MenuItem);
         }
-        public void show()//maybe returns menuitem then handle it in events menu?
+        public void show()
         {
             bool ExitOrBack = false;
             int userInput;
@@ -38,14 +38,14 @@ namespace Ex04.Menus.Events
                 }
                 else
                 {
-                    if (m_MenuItems[--userInput] is ExpandableMenuItem)
+                    if (m_MenuItems[userInput -1] is ExpandableMenuItem)
                     {
-                        currentExpendableMenuItemToHandle = (ExpandableMenuItem)m_MenuItems[userInput--];
+                        currentExpendableMenuItemToHandle = (ExpandableMenuItem)m_MenuItems[userInput -1];
                         currentExpendableMenuItemToHandle.show();
                     }
                     else
                     {
-                        m_MenuItems[userInput--].HandleSelectedItem();
+                        m_MenuItems[userInput -1].HandleSelectedItem();
                     }
                 }
             }
@@ -56,13 +56,14 @@ namespace Ex04.Menus.Events
             Console.Clear();
             Console.WriteLine("**{0}**", ItemTitle);
             Console.WriteLine("-----------------------");
-            int count = 1;
+            int itemIndex = 1;
+
             foreach (MenuItem item in m_MenuItems)
             {
                 if (item.ItemTitle != "Exit" && item.ItemTitle != "Back")
                 {
-                    Console.WriteLine("{0} -> {1}", count, item.ItemTitle);
-                    count++;
+                    Console.WriteLine("{0} -> {1}", itemIndex, item.ItemTitle);
+                    itemIndex++;
                 }
                 else
                 {
@@ -72,7 +73,7 @@ namespace Ex04.Menus.Events
             Console.WriteLine("-----------------------");
         }
 
-        public static int GetInputFromUser(int i_MenuItemsAmount)
+        public int GetInputFromUser(int i_MenuItemsAmount)
         {
             bool isValidInput = false;
             string userInput;
@@ -99,7 +100,7 @@ namespace Ex04.Menus.Events
             return validInput;
         }
 
-        public static void GetAndCheckInput(int i_MenuItemsAmount, string i_UserInput, out bool o_IsValidInput, out int o_InputParsedToInt)
+        public void GetAndCheckInput(int i_MenuItemsAmount, string i_UserInput, out bool o_IsValidInput, out int o_InputParsedToInt)
         {
             o_IsValidInput = true;
             o_InputParsedToInt = 0;
@@ -115,7 +116,6 @@ namespace Ex04.Menus.Events
                 o_IsValidInput = false;
                 throw new ArgumentOutOfRangeException();
             }
-
         }
     }
 }

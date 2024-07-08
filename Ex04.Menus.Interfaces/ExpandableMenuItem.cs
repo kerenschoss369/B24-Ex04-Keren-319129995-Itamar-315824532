@@ -13,18 +13,20 @@ namespace Ex04.Menus.Interfaces
         {
             m_MenuItems = new List<MenuItem>();
         }
+
         private void printMenu()
         {
             Console.Clear();
             Console.WriteLine("**{0}**", Title);
             Console.WriteLine("-----------------------");
-            int count = 1;
+            int itemIndex = 1;
+
             foreach (MenuItem item in m_MenuItems)
             {
                 if (item.Title != "Exit" && item.Title != "Back")
                 {
-                    Console.WriteLine("{0} -> {1}", count, item.Title);
-                    count++;
+                    Console.WriteLine("{0} -> {1}", itemIndex, item.Title);
+                    itemIndex++;
                 }
                 else
                 {
@@ -47,13 +49,15 @@ namespace Ex04.Menus.Interfaces
                 }
                 else
                 {
-                    m_MenuItems[i_UserInput--].HandleSelectedItem();
+                    m_MenuItems[i_UserInput -1].HandleSelectedItem();
                 }
             }
         }
+
         public override void HandleSelectedItem()
         {
         }
+
         public void AddMenuItem(MenuItem i_MenuItem)
         {
             if (m_MenuItems == null)
@@ -79,20 +83,20 @@ namespace Ex04.Menus.Interfaces
                 }
                 else
                 {
-                    if (m_MenuItems[--userInput] is ExpandableMenuItem)
+                    if (m_MenuItems[userInput -1] is ExpandableMenuItem)
                     {
-                        currentExpendableMenuItemToHandle = (ExpandableMenuItem)m_MenuItems[userInput--];
+                        currentExpendableMenuItemToHandle = (ExpandableMenuItem)m_MenuItems[userInput -1];
                         currentExpendableMenuItemToHandle.show();
                     }
                     else
                     {
-                        m_MenuItems[userInput--].HandleSelectedItem();
+                        m_MenuItems[userInput -1].HandleSelectedItem();
                     }
                 }
             }
         }
 
-        public static int GetInputFromUser(int i_MenuItemsAmount)
+        public int GetInputFromUser(int i_MenuItemsAmount)
         {
             bool isValidInput = false;
             string userInput;

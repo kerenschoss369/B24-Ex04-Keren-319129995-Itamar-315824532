@@ -12,7 +12,9 @@ namespace Ex04.Menus.Test
     {
         private void showTime()
         {
-            Console.WriteLine("The hour is: {0}", DateTime.Now);
+            DateTime currentDateTime = DateTime.Now;
+            TimeSpan currentHour = new TimeSpan(currentDateTime.Hour, currentDateTime.Minute, currentDateTime.Second);
+            Console.WriteLine("The Hour is: {0}", currentHour);
         }
 
         public void ChosenAction()
