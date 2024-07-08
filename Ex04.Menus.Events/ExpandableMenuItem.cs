@@ -9,39 +9,42 @@ namespace Ex04.Menus.Events
     public class ExpandableMenuItem : MenuItem
     {
         private List<MenuItem> m_MenuItems;
+
         public ExpandableMenuItem(string i_Title) : base(i_Title)
         {
             m_MenuItems = new List<MenuItem>();
         }
+
         public override void HandleSelectedItem()
         {
             OnChosen();
         }
+
         public void AddMenuItem(MenuItem i_MenuItem)
         {
             m_MenuItems?.Add(i_MenuItem);
         }
-        public void show()
+
+        public void Show()
         {
-            bool ExitOrBack = false;
+            bool exitOrBack = false;
             int userInput;
             ExpandableMenuItem currentExpendableMenuItemToHandle;
 
-
-            while (!ExitOrBack)
+            while (!exitOrBack)
             {
                 printMenu();
                 userInput = GetInputFromUser(m_MenuItems.Count());
                 if (userInput == 0)
                 {
-                    ExitOrBack = true;
+                    exitOrBack = true;
                 }
                 else
                 {
                     if (m_MenuItems[userInput -1] is ExpandableMenuItem)
                     {
                         currentExpendableMenuItemToHandle = (ExpandableMenuItem)m_MenuItems[userInput -1];
-                        currentExpendableMenuItemToHandle.show();
+                        currentExpendableMenuItemToHandle.Show();
                     }
                     else
                     {
@@ -53,11 +56,11 @@ namespace Ex04.Menus.Events
 
         private void printMenu()
         {
+            int itemIndex = 1;
+
             Console.Clear();
             Console.WriteLine("**{0}**", ItemTitle);
             Console.WriteLine("-----------------------");
-            int itemIndex = 1;
-
             foreach (MenuItem item in m_MenuItems)
             {
                 if (item.ItemTitle != "Exit" && item.ItemTitle != "Back")
@@ -70,6 +73,7 @@ namespace Ex04.Menus.Events
                     Console.WriteLine("{0} -> {1}", 0, item.ItemTitle);
                 }
             }
+
             Console.WriteLine("-----------------------");
         }
 
