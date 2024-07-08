@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 
 namespace Ex04.Menus.Interfaces
 {
@@ -17,6 +18,7 @@ namespace Ex04.Menus.Interfaces
             foreach (IMenuListener listener in m_ItemListeners)
             {
                 listener.ChosenAction();
+                Thread.Sleep(2000);
             }
         }
     }
