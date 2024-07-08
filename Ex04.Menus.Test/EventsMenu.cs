@@ -24,16 +24,12 @@ namespace Ex04.Menus.Test
             ExpandableMenuItem showDateTime = new ExpandableMenuItem("Show Date/Time");
             ExpandableMenuItem showVersionOrCountCapitals = new ExpandableMenuItem("Version And Capitals");
             ExpandableMenuItem eventsMenu = new ExpandableMenuItem("Events Main Menu");
-            
-            //not sure about it for now
             NonExpandableMenuItem exit = new NonExpandableMenuItem("Exit");
             NonExpandableMenuItem back = new NonExpandableMenuItem("Back");
-
             showTime.Chosen += m_ShowTimeListener.ChosenAction;
             showDate.Chosen += m_ShowDateListener.ChosenAction;
             showVersion.Chosen += m_ShowVersionListener.ChosenAction;
             countCapitals.Chosen += m_CountCapitalsListener.ChosenAction;
-
             showDateTime.AddMenuItem(showTime);
             showDateTime.AddMenuItem(showDate);
             showDateTime.AddMenuItem(back);

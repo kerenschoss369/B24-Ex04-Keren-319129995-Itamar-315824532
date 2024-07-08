@@ -24,6 +24,7 @@ namespace Ex04.Menus.Events
                 return m_ItemTitle;
             }
         }
+
         public abstract void HandleSelectedItem();
 
         protected virtual void OnChosen()

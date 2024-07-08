@@ -29,6 +29,7 @@ namespace Ex04.Menus.Interfaces
                 m_ItemListeners.Add(listener);
             }
         }
+
         public void RemoveListener(IMenuListener listener)
         {
             if (listener != null && m_ItemListeners.Contains(listener))
@@ -36,6 +37,7 @@ namespace Ex04.Menus.Interfaces
                 m_ItemListeners.Remove(listener);
             }
         }
+
         public abstract void HandleSelectedItem();
 
 

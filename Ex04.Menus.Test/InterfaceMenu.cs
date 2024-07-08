@@ -24,16 +24,12 @@ namespace Ex04.Menus.Test
             Ex04.Menus.Interfaces.ExpandableMenuItem showDateTime = new Ex04.Menus.Interfaces.ExpandableMenuItem("Show Date/Time");
             Ex04.Menus.Interfaces.ExpandableMenuItem showVersionOrCountCapitals = new Ex04.Menus.Interfaces.ExpandableMenuItem("Version And Capitals");
             Ex04.Menus.Interfaces.ExpandableMenuItem interfaceMenu = new Ex04.Menus.Interfaces.ExpandableMenuItem("Interface Main Menu");
-
-            //not sure about it for now
             Ex04.Menus.Interfaces.NonExpandableMenuItem exit = new Ex04.Menus.Interfaces.NonExpandableMenuItem("Exit");
             Ex04.Menus.Interfaces.NonExpandableMenuItem back = new Ex04.Menus.Interfaces.NonExpandableMenuItem("Back");
-
             showDate.AddListener(m_ShowDateListener);
             showTime.AddListener(m_ShowTimeListener);
             showVersion.AddListener(m_ShowVersionListener);
             countCapitals.AddListener(m_CountCapitalsListener);
-
             showDateTime.AddMenuItem(showTime);
             showDateTime.AddMenuItem(showDate);
             showDateTime.AddMenuItem(back);

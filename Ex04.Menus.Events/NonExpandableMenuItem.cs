@@ -11,6 +11,7 @@ namespace Ex04.Menus.Events
         public NonExpandableMenuItem(string i_Title) : base(i_Title)
         {
         }
+
         public override void HandleSelectedItem()
         {
                OnChosen();

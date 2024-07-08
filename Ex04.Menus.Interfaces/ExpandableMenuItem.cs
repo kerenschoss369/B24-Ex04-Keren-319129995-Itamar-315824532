@@ -9,6 +9,7 @@ namespace Ex04.Menus.Interfaces
     public class ExpandableMenuItem : MenuItem
     {
         protected List<MenuItem> m_MenuItems;
+
         public ExpandableMenuItem(string i_Title) : base(i_Title)
         {
             m_MenuItems = new List<MenuItem>();
@@ -16,11 +17,11 @@ namespace Ex04.Menus.Interfaces
 
         private void printMenu()
         {
+            int itemIndex = 1;
+
             Console.Clear();
             Console.WriteLine("**{0}**", Title);
             Console.WriteLine("-----------------------");
-            int itemIndex = 1;
-
             foreach (MenuItem item in m_MenuItems)
             {
                 if (item.Title != "Exit" && item.Title != "Back")
@@ -36,24 +37,6 @@ namespace Ex04.Menus.Interfaces
             Console.WriteLine("-----------------------");
         }
 
-        /*public void HandleSelectedItem(int i_UserInput)
-        {
-            bool ExitOrBack = false;
-
-            while (!ExitOrBack)
-            {
-                printMenu();
-                if (i_UserInput == 0)
-                {
-                    ExitOrBack = true;
-                }
-                else
-                {
-                    m_MenuItems[i_UserInput -1].HandleSelectedItem();
-                }
-            }
-        }*/
-
         public override void HandleSelectedItem()
         {
         }
@@ -67,31 +50,31 @@ namespace Ex04.Menus.Interfaces
             m_MenuItems.Add(i_MenuItem);
         }
 
-        public void show()
+        public void Show()
         {
-            bool ExitOrBack = false;
+            bool exitOrBack = false;
             int userInput;
             ExpandableMenuItem currentExpendableMenuItemToHandle;
 
-            while (!ExitOrBack)
+            while (!exitOrBack)
             {
                 printMenu();
                 userInput = GetInputFromUser(m_MenuItems.Count());
                 if (userInput == 0)
                 {
-                    ExitOrBack = true;
+                    exitOrBack = true;
                 }
                 else
                 {
                     if (m_MenuItems[userInput -1] is ExpandableMenuItem)
                     {
                         currentExpendableMenuItemToHandle = (ExpandableMenuItem)m_MenuItems[userInput -1];
-                        currentExpendableMenuItemToHandle.show();
+                        currentExpendableMenuItemToHandle.Show();
                     }
-                    /*else
+                    else
                     {
                        (m_MenuItems[userInput -1]).HandleSelectedItem();
-                    }*/
+                    }
                 }
             }
         }
@@ -139,9 +122,6 @@ namespace Ex04.Menus.Interfaces
                 o_IsValidInput= false;
                 throw new ArgumentOutOfRangeException();
             }
-
         }
     }
-
-
 }
