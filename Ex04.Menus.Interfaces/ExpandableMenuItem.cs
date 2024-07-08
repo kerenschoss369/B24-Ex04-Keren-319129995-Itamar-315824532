@@ -36,7 +36,7 @@ namespace Ex04.Menus.Interfaces
             Console.WriteLine("-----------------------");
         }
 
-        public void HandleSelectedItem(int i_UserInput)
+        /*public void HandleSelectedItem(int i_UserInput)
         {
             bool ExitOrBack = false;
 
@@ -52,7 +52,7 @@ namespace Ex04.Menus.Interfaces
                     m_MenuItems[i_UserInput -1].HandleSelectedItem();
                 }
             }
-        }
+        }*/
 
         public override void HandleSelectedItem()
         {
@@ -88,10 +88,10 @@ namespace Ex04.Menus.Interfaces
                         currentExpendableMenuItemToHandle = (ExpandableMenuItem)m_MenuItems[userInput -1];
                         currentExpendableMenuItemToHandle.show();
                     }
-                    else
+                    /*else
                     {
-                        m_MenuItems[userInput -1].HandleSelectedItem();
-                    }
+                       (m_MenuItems[userInput -1]).HandleSelectedItem();
+                    }*/
                 }
             }
         }

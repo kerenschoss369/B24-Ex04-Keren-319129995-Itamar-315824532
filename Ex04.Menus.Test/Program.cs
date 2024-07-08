@@ -11,8 +11,8 @@ namespace Ex04.Menus.Test
     {
         public static void Main()
         {
-            EventsMenu eventsMenu = new EventsMenu();
-            eventsMenu.m_MainMenu.show();
+            //EventsMenu eventsMenu = new EventsMenu();
+            //eventsMenu.m_MainMenu.show();
 
             InterfaceMenu interfaceMenu = new InterfaceMenu();
             interfaceMenu.m_MainMenu.show();
