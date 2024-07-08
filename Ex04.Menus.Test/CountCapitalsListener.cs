@@ -25,6 +25,7 @@ namespace Ex04.Menus.Test
                     amountOfCapitalLetters++;
                 }
             }
+
             Console.WriteLine("There are {0} capital letters in this sentence.", amountOfCapitalLetters);
         }
 

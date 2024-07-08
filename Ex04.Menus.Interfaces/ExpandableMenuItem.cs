@@ -37,7 +37,7 @@ namespace Ex04.Menus.Interfaces
             Console.WriteLine("-----------------------");
         }
 
-        public override void HandleSelectedItem()
+        public override void HandleSelectedItem() 
         {
         }
 
@@ -47,6 +47,7 @@ namespace Ex04.Menus.Interfaces
             {
                 m_MenuItems = new List<MenuItem>();
             }
+
             m_MenuItems.Add(i_MenuItem);
         }
 
@@ -106,7 +107,7 @@ namespace Ex04.Menus.Interfaces
             return validInput;
         }
 
-        public static void GetAndCheckInput(int i_MenuItemsAmount, string i_UserInput, out bool o_IsValidInput,out int o_InputParsedToInt)
+        public void GetAndCheckInput(int i_MenuItemsAmount, string i_UserInput, out bool o_IsValidInput,out int o_InputParsedToInt)
         {
             o_IsValidInput = true;
             o_InputParsedToInt = 0;
